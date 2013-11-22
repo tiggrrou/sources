@@ -4,5 +4,5 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
-#include <C:\Users\nicoalias\Documents\M2\glut\glut.h>
+#include <GL\glut.h>
 #include <time.h>

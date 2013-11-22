@@ -54,11 +54,11 @@ Liste* init_Liste(Tpoint * point)
 }
 
 //ajout d'un elt à la tete d'une liste existante
-void add_to_Liste(Liste ** liste, Tpoint * point)
+void add_to_Liste(Liste * liste, Tpoint * point)
 {
-	Liste* l_tmp = init_liste(point);
-	l_tmp->next = *liste;
-	*liste = l_tmp;
+	Liste* l_tmp = init_Liste(point);
+	l_tmp->next = liste;
+	liste = l_tmp;
 }
 
 //supprime l'element passé en parametre de la liste

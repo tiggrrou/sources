@@ -8,32 +8,34 @@
 
 
 // dans le format pgm les lignes commençant par # sont des commentaires 
-void skip_comment(File *f)
+void skip_comment(FILE *f)
 {
 	char c = getc(f);
 	
 	switch (c) 
 		{
-		case '#'
-			while (getc(file) != '\n') {}
+	case '#':
+			while (getc(f) != '\n') {}
 			skip_comment(f);
 			break;
 		case '\n':
 			skip_comment(f);
 			break;
 		default:
-			ungetc(c, file);
+			ungetc(c, f);
 			break;
 		}
 }
 
 // allocation de la structure image
-Image 	alloc_image( int height, int width)
+Image *	alloc_image( int height, int width)
 {
-	Image* img 	= (Image*)malloc(sizeof(Image));
+	Image* img 	= (Image*)(malloc(sizeof(Image)));
 	img->height = height;
 	img->width 	= width;
-	img->px 	= (int *)(malloc(sizeof(int)) * height * width);
+	img->px 	= (int *)(malloc(sizeof(int)* height * width) );
+
+	return img;
 }
 
 // libération de la structure image
