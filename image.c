@@ -33,8 +33,11 @@ Image *	alloc_image( int height, int width)
 	Image* img 	= (Image*)(malloc(sizeof(Image)));
 	img->height = height;
 	img->width 	= width;
-	img->px 	= (int *)(malloc(sizeof(int)* height * width) );
-
+	img->px = (int **)malloc(sizeof(int *) * height);
+    int i ;
+    for(i = 0 ; i < height ; i++)
+        img->px[i] = (int *)malloc(sizeof(int) * width);
+ 
 	return img;
 }
 

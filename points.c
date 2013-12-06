@@ -22,10 +22,11 @@ void free_sommet(Tpoint* point)
 		}
 }
 
-Tpoint* genere_sommet()
+Tpoint* genere_sommet(Image*  i)
 {
 	double x = rand()/ (double) RAND_MAX; 	// la division par rand_max ramene le nombre entre 0 et 1
 	double y = rand()/ (double) RAND_MAX;
+	double z;
 	// on évite que les valeurs générées soient sur les bords de la map
 	if(x == 0)
 		x = 0.00001;
@@ -36,17 +37,19 @@ Tpoint* genere_sommet()
 	if(y == 1)
 		x = 0.99999;
 	// reste à générer le point d'altitude
+	z = genere_altitude(i, x, y);
 	return init_sommet(x, y, 0.); 
 	
 }
 
-void genere_altitude(Image * i, )
+double genere_altitude(Image * i, double x, double y )
 {
-
-
+	int height = i->height* y;
+	int width  = i->width * x;
+	return 1 - i->px[height][width] / 255; 
 }
 
-// liste
+// liste ------------------------------------------------//
 
 
 // initialisation d'une liste avec un élément

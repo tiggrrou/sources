@@ -7,7 +7,7 @@ typedef struct Image
 {
 	int height;
 	int width;
-	int *px;
+	int **px;
 } Image;
 
 void skip_comment(FILE* f);

@@ -28,11 +28,26 @@ typedef struct Liste
 	struct Liste 	* next;
 } Liste;
 
+//Structure pour contenir les triangles
+typedef struct Simplex
+{
+	struct  Tpoint*		xyz[3];
+	struct	Simplex *	neighbors[3];
+} Simplex;
+
+//structure Pile de triangles
+typedef struct Pile
+{
+	struct Simplex *	triangle;
+	struct Pile *		next;
+} Pile;
+
 // GENERATION DES SOMMETS
 
 	Tpoint* init_sommet(double x, double y, double z);
 	void free_sommet(Tpoint* point);
-	Tpoint* genere_sommet();
+	Tpoint* genere_sommet(Image * image);
+	double genere_altitude(Image * i, double x, double y );
 
 // LISTE
 
