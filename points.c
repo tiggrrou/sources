@@ -40,6 +40,12 @@ Tpoint* genere_sommet()
 	
 }
 
+void genere_altitude(Image * i, )
+{
+
+
+}
+
 // liste
 
 
@@ -101,3 +107,4 @@ int puissance(Tpoint * pA, Tpoint * pB, Tpoint * pC)
 	else //  puissance == 0
 		return ALIGNE;		
 }
+

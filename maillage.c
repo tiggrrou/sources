@@ -1,5 +1,4 @@
 #include "maillage.h"
-#include "points.h"
 
 Liste * create_square()
 {
@@ -29,8 +28,8 @@ return liste;
 Liste * add_rand_point(int nb_points)
 {
 	Liste * liste = NULL;
+
 	// pour générer un nuage différent a chaque fois
-	
 	int i = 0;
 	srand(time(NULL));
 

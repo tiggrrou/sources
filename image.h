@@ -1,7 +1,7 @@
 #ifndef IMAGE_H_
 #define IMAGE_H_
 
-#include "points.h"
+#include "include.h"
 
 typedef struct Image
 {
@@ -12,6 +12,7 @@ typedef struct Image
 
 void skip_comment(FILE* f);
 Image * alloc_image( int height, int width);
+Image * load_image(const char * f_name);
 
 
 #endif

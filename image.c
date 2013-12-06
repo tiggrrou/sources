@@ -44,3 +44,28 @@ void	free_image(Image * im)
 	free(im->px);
 	free(im);
 }
+
+// chargement d'une image
+Image * load_image(const char * f_name)
+{
+	int i, j;
+	int height, width;
+	FILE * f = fopen(f_name,"r"); 
+	skip_comment(f);
+
+	sscanf(f_name,"%d%d",&width, &height);
+
+	skip_comment(f);
+
+	Image* img = alloc_image(height, width);
+
+	for(i = height-1; i >= 0; i--)
+    {
+        for(j = 0; j < width; j++)
+        {
+            fscanf(f, "%d", &(img->px[i][j])) ;
+        }
+    }
+
+    return img ;
+}
